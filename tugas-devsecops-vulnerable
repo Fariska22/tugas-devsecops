@@ -1,0 +1,17 @@
+const express = require("express");
+const app = express();
+
+const AWS_SECRET_KEY = "AKIAIOSFODNN7EXAMPLE";
+
+app.get("/login", (req, res) => {
+    const username = req.query.user;
+
+    const query =
+        "SELECT * FROM users WHERE username='" +
+        username +
+        "'";
+
+    res.send(query);
+});
+
+app.listen(3000);
